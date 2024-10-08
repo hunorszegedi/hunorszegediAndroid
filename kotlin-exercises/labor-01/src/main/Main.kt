@@ -1,4 +1,6 @@
 package main
+import junit.framework.TestCase.assertEquals
+import junit.framework.TestCase.assertTrue
 import kotlin.random.Random
 
 fun addsTwoValues(num1: Int, num2: Int): Int {
@@ -181,4 +183,19 @@ fun main() {
 
     val average8 = randomArray8.average()
     println("Average: $average8")
+
+    //extra
+    val anagramGrouper = AnagramGrouper()
+
+    val test1 = anagramGrouper.groupAnagrams(arrayOf("eat", "tea", "tan", "ate", "nat", "bat"))
+    println("Test 1: $test1")
+
+    val test2 = anagramGrouper.groupAnagrams(arrayOf("eat", "tEa", "Tan", "atE", "NAT", "bat"))
+    println("Test 2: $test2")
+
+    val test3 = anagramGrouper.groupAnagrams(arrayOf("eat"))
+    println("Test 3: $test3")
+
+    val test4 = anagramGrouper.groupAnagrams(arrayOf())
+    println("Test 4: $test4")
 }
