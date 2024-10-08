@@ -16,6 +16,34 @@ fun isPrime(number: Int): Boolean {
     return true
 }
 
+// 4. feladat megoldása
+
+fun encode(message: String): String {
+    return message.map { char ->
+        if (char.isLetter()) {
+            val base = if (char.isLowerCase()) 'a' else 'A'
+            ((char - base + 3) % 26 + base.toInt()).toChar()
+        } else {
+            char
+        }
+    }.joinToString("")
+}
+
+fun decode(message: String): String {
+    return message.map { char ->
+        if (char.isLetter()) {
+            val base = if (char.isLowerCase()) 'a' else 'A'
+            ((char - base - 3 + 26) % 26 + base.toInt()).toChar()
+        } else {
+            char
+        }
+    }.joinToString("")
+}
+
+fun messageCoding(msg: String, func: (String) -> String): String {
+    return func(msg)
+}
+
 fun main() {
     //1.
     println("Exercise number 1:")
@@ -79,5 +107,16 @@ fun main() {
     }
 
     //4.
-    var toCodeString = readln()
+    println("Exercise number 4:")
+    println("Enter a message to encode:")
+    val toCodeString = readln()
+
+    val encodedMessage = messageCoding(toCodeString, ::encode)
+    println("Encoded message: $encodedMessage")
+
+    val decodedMessage = messageCoding(encodedMessage, ::decode)
+    println("Decoded message: $decodedMessage")
+
+    println("Testing if decoded message is equal to the original:")
+    println(decodedMessage == toCodeString)
 }
