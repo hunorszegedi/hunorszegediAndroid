@@ -1,4 +1,5 @@
 package main
+import kotlin.random.Random
 
 fun addsTwoValues(num1: Int, num2: Int): Int {
     return num1 + num2
@@ -16,7 +17,7 @@ fun isPrime(number: Int): Boolean {
     return true
 }
 
-// 4. feladat megoldása
+// 4.
 
 fun encode(message: String): String {
     return message.map { char ->
@@ -43,6 +44,9 @@ fun decode(message: String): String {
 fun messageCoding(msg: String, func: (String) -> String): String {
     return func(msg)
 }
+
+// 5.
+fun printEvenNumbers(numbers: List<Int>) = numbers.filter { it % 2 == 0 }.forEach { println(it) }
 
 fun main() {
     //1.
@@ -119,4 +123,62 @@ fun main() {
 
     println("Testing if decoded message is equal to the original:")
     println(decodedMessage == toCodeString)
+
+    //5.
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+    println("Even numbers in the list are:")
+    printEvenNumbers(numbers)
+
+    //6
+    val numbers5 = listOf(1, 2, 3, 4, 5, 6)
+
+    val doubledNumbers = numbers5.map { it * 2 }
+    println("Doubled elements: $doubledNumbers")
+
+    val daysOfWeek5 = listOf(
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    )
+
+    val capitalizedDays = daysOfWeek5.map { it.uppercase() }
+    println("Days capitalized: $capitalizedDays")
+
+    val firstCharOfDays = daysOfWeek5.map { it.first().lowercaseChar() }
+    println("First character of each day (lowercase): $firstCharOfDays")
+
+    val daysLength = daysOfWeek5.map { it.length }
+    println("Length of each day: $daysLength")
+
+    val averageLength = daysLength.average()
+    println("Average length of days: $averageLength")
+
+    //7
+    val daysOfWeek7 = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    val mutableDaysOfWeek7 = daysOfWeek7.toMutableList()
+
+    mutableDaysOfWeek7.removeAll { it.contains('n', ignoreCase = true) }
+    println(mutableDaysOfWeek7)
+
+    mutableDaysOfWeek7.withIndex().forEach { (index, value) ->
+        println("Item at $index is $value")
+    }
+
+    mutableDaysOfWeek7.sort()
+    println(mutableDaysOfWeek7)
+
+    //8
+    val randomArray8 = Array(10) { Random.nextInt(0, 101) }
+    randomArray8.forEach { println(it) }
+
+    val sortedArray8 = randomArray8.sorted()
+    println(sortedArray8)
+
+    val containsEven8 = randomArray8.any { it % 2 == 0 }
+    println("Contains even number: $containsEven8")
+
+    val allEven8 = randomArray8.all { it % 2 == 0 }
+    println("All numbers are even: $allEven8")
+
+    val average8 = randomArray8.average()
+    println("Average: $average8")
 }
