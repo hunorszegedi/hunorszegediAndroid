@@ -1,8 +1,11 @@
 package com.tasty.recipesapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import com.google.android.ads.mediationtestsuite.activities.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate: MainActivity created.")
+
+        val btnGetStarted = findViewById<Button>(R.id.btn_get_started)
+        btnGetStarted.setOnClickListener {
+             val intent = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {

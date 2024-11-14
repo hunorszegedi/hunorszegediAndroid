@@ -21,15 +21,8 @@ class SplashActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: SplashActivity created.")
 
         val logo = findViewById<ImageView>(R.id.app_logo)
-        val appName = findViewById<TextView>(R.id.app_name)
-        val appDescription = findViewById<TextView>(R.id.app_description)
-
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        val slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-
         logo.startAnimation(fadeInAnimation)
-        appName.startAnimation(slideUpAnimation)
-        appDescription.startAnimation(slideUpAnimation)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@SplashActivity, MainActivity::class.java)

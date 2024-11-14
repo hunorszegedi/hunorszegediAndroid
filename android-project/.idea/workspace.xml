@@ -23,6 +23,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=XPH0220619002474)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -64,8 +69,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -82,7 +88,9 @@
   "keyToString": {
     "Android App.MainActivity.executor": "Run",
     "Android App.SplashActivity.executor": "Run",
-    "git-widget-placeholder": "main"
+    "JUnit.com.tasty.recipesapp in RecipesApp.app.main.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_directory_selection": "C:/Users/Vivobook/Desktop/III_ev/android/android-project/app/src/main/res/values"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -227,9 +235,24 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.tasty.recipesapp in RecipesApp.app.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RecipesApp.app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tasty.recipesapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tasty.recipesapp" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Android App.SplashActivity" />
+        <item itemvalue="JUnit.com.tasty.recipesapp in RecipesApp.app.main" />
         <item itemvalue="Android App.MainActivity" />
       </list>
     </recent_temporary>
