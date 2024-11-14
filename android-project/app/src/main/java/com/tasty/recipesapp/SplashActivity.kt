@@ -20,10 +20,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         Log.d(TAG, "onCreate: SplashActivity created.")
 
-        val logo = findViewById<ImageView>(R.id.app_logo)
-        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        logo.startAnimation(fadeInAnimation)
-
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RecipesApp</string>
     <string name="app_logo_desc">RecipeHub Logo</string>
-    <string name="splash_slogan">Cooking Made Simple!</string>
+    <string name="splash_slogan">Cooking Made Simple</string>
     <string name="main_description">Welcome to RecipeHub! Discover thousands of recipes, share your own, and enjoy cooking like never before.</string>
     <string name="get_started">Get Started</string>
     <string name="home_welcome_message">Welcome to RecipeHub!</string>

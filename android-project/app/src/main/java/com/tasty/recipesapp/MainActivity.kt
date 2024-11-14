@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.google.android.ads.mediationtestsuite.activities.HomeActivity
+import com.tasty.recipesapp.HomeActivity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnGetStarted = findViewById<Button>(R.id.btn_get_started)
         btnGetStarted.setOnClickListener {
-             val intent = Intent(this@MainActivity, HomeActivity::class.java)
+            val intent = Intent(this@MainActivity, HomeActivity::class.java)
             startActivity(intent)
         }
     }
