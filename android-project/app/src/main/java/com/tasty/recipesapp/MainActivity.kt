@@ -7,6 +7,9 @@ import android.util.Log
 import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tasty.recipesapp.HomeActivity
 
 
@@ -23,11 +26,15 @@ class MainActivity : AppCompatActivity() {
         // Initialize NavController
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
-        val getStartedButton = findViewById<Button>(R.id.get_started_button)
-        getStartedButton.setOnClickListener {
-            navController.navigate(R.id.action_main_to_home)
-            finish() // Optional: finish MainActivity
-        }
+        // Set up the BottomNavigationView with NavController
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     override fun onStart() {
