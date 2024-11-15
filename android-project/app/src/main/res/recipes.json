@@ -1,0 +1,55 @@
+[
+  {
+    "recipeID": 101,
+    "name": "Spaghetti Bolognese",
+    "description": "A classic Italian pasta dish...",
+    "nutrition": {
+      "nutritionID": 501,
+      "calories": 350,
+      "carbohydrates": 45,
+      "fat": 12,
+      "protein": 15,
+      "sugar": 8,
+      "fiber": 5
+    },
+    "instructions": [
+      {
+        "instructionID": 23,
+        "displayText": "Boil water.",
+        "position": 1
+      },
+      {
+        "instructionID": 24,
+        "displayText": "Cook pasta until al dente.",
+        "position": 2
+      }
+    ],
+    "components": [
+      {
+        "componentID": 301,
+        "ingredient": {
+          "ingredientID": 201,
+          "name": "Spaghetti",
+          "displayPlural": "spaghettis",
+          "displaySingular": "spaghetti"
+        },
+        "measurements": [
+          {
+            "measurementID": 401,
+            "quantity": "200",
+            "unit": {
+              "unitID": 601,
+              "name": "gram",
+              "abbreviation": "g",
+              "displayPlural": "grams",
+              "displaySingular": "gram",
+              "system": "metric"
+            }
+          }
+        ],
+        "position": 1
+      }
+    ],
+    "servings": 4
+  }
+]
