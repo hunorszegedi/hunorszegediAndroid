@@ -11,52 +11,68 @@ import com.tasty.recipesapp.model.InstructionModel
 import com.tasty.recipesapp.model.NutritionModel
 import com.tasty.recipesapp.model.RecipeModel
 import com.tasty.recipesapp.model.UnitModel
+import org.json.JSONObject
 import java.io.BufferedReader
+import java.io.IOException
 import java.io.InputStreamReader
 
 class RecipeRepository(private val context: Context) {
 
-    private val recipes: List<RecipeModel> by lazy {
-        loadRecipesFromAssets()
+    // Function to get all recipes
+    fun getAllRecipes(): List<RecipeModel> {
+        return readAllRecipes().toModelList()
     }
 
-    private fun loadRecipesFromAssets(): List<RecipeModel> {
+    private fun readAllRecipes(): List<RecipeDTO> {
         val gson = Gson()
-        val jsonString = readJsonFileFromAssets("recipes.json")
-        val listRecipeType = object : TypeToken<List<RecipeDTO>>() {}.type
-        val recipeDTOList: List<RecipeDTO> = gson.fromJson(jsonString, listRecipeType)
-        return recipeDTOList.toModelList()
-    }
+        val recipeList: List<RecipeDTO>
+        val assetManager = context.assets
+        try {
+            val inputStream = assetManager.open("recipes.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            val jsonString = String(buffer, Charsets.UTF_8)
 
-    private fun readJsonFileFromAssets(filename: String): String {
-        return context.assets.open(filename).use { inputStream ->
-            BufferedReader(InputStreamReader(inputStream)).use { reader ->
-                reader.readText()
-            }
+            val jsonObject = JSONObject(jsonString)
+            val recipesArray = jsonObject.getJSONArray("recipes")
+            val type = object : TypeToken<List<RecipeDTO>>() {}.type
+
+             recipeList = gson.fromJson(recipesArray.toString(), type)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            return emptyList()
         }
-    }
-
-    fun getRecipes(): List<RecipeModel> {
-        return recipes
-    }
-
-    fun getRecipeById(id: Int): RecipeModel? {
-        return recipes.find { it.id == id }
+        return recipeList
     }
 
     fun getDummyRecipes(): List<RecipeModel> {
         return listOf(
             RecipeModel(
                 id = 1,
-                name = "Dummy Recipe 1",
-                description = "This is a dummy recipe description.",
-                nutrition = NutritionModel(calories = 200, carbohydrates = 30, fat = 10, protein = 5, sugar = 5, fiber = 3),
+                name = "Dummy Recipe",
+                description = "This is a dummy recipe.",
+                nutrition = NutritionModel(
+                    calories = 100,
+                    carbohydrates = 20,
+                    fat = 5,
+                    protein = 10,
+                    sugar = 5,
+                    fiber = 2
+                ),
                 instructions = listOf(
-                    InstructionModel(id = 1, displayText = "Step 1: Dummy instruction"),
-                    InstructionModel(id = 2, displayText = "Step 2: Another dummy instruction")
+                    InstructionModel(id = 1, displayText = "Step 1: Do something."),
+                    InstructionModel(id = 2, displayText = "Step 2: Do something else.")
                 ),
                 ingredients = listOf(
-                    ComponentModel(id = 1, ingredient = IngredientModel(id = 1, name = "Ingredient 1"), quantity = 100.0, unit = UnitModel(name = "g", abbreviation = "g"), position = 1)
+                    ComponentModel(
+                        id = 1,
+                        ingredient = IngredientModel(id = 1, name = "Ingredient 1"),
+                        quantity = 100.0,
+                        unit = UnitModel(name = "grams", abbreviation = "g"),
+                        position = 1
+                    )
                 ),
                 servings = 4
             )

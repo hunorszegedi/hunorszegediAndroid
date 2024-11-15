@@ -64,7 +64,7 @@ fun RecipeDTO.toModel(): RecipeModel {
         description = this.description,
         nutrition = this.nutrition.toModel(),
         instructions = this.instructions.toModelList(),
-        components = this.components.map { it.toModel() },
+        ingredients = this.components.map { it.toModel() },
         servings = this.servings
     )
 }

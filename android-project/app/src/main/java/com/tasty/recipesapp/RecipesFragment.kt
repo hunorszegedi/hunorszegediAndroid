@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.tasty.recipesapp.viewmodel.RecipeListViewModel
 
 class RecipesFragment : Fragment() {
 
-    private lateinit var viewModel: RecipeListViewModel
+    private val recipeViewModel: RecipeListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_recipes, container, false)
     }
@@ -24,22 +24,12 @@ class RecipesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize the ViewModel
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        ).get(RecipeListViewModel::class.java)
+        recipeViewModel.loadRecipeData()
 
-        // Observe the recipe list LiveData
-        viewModel.recipeList.observe(viewLifecycleOwner, { recipes ->
+        recipeViewModel.recipeModels.observe(viewLifecycleOwner) { recipes ->
             for (recipe in recipes) {
-                Log.d("RecipeData", "Recipe ID: ${recipe.id}")
-                Log.d("RecipeData", "Recipe Name: ${recipe.name}")
-                Log.d("RecipeData", "Recipe Description: ${recipe.description}")
+                Log.d("Recipes", recipe.toString())
             }
-        })
-
-        // Fetch recipe data
-        viewModel.fetchRecipeData()
+        }
     }
 }
