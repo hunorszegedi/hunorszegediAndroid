@@ -6,4 +6,5 @@
     <string name="get_started">Get Started</string>
     <string name="home_welcome_message">Welcome to RecipeHub!</string>
     <string name="featured_recipes">Featured Recipes</string>
+    <string name="welcome_title">Welcome to RecipeHub!</string>
 </resources>

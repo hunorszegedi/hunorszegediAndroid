@@ -3,6 +3,9 @@ package com.tasty.recipesapp
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -11,9 +14,15 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        Log.d(TAG, "onCreate: HomeActivity created.")
 
-        // TODO: Implement any additional setup for the home screen
+        // Find NavController
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.home_nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        // Setup BottomNavigationView
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.setupWithNavController(navController)
     }
 
     override fun onStart() {

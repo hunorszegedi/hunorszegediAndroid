@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.tasty.recipesapp.HomeActivity
 
 
@@ -12,15 +14,19 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "MainActivity"
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d(TAG, "onCreate: MainActivity created.")
 
-        val btnGetStarted = findViewById<Button>(R.id.btn_get_started)
-        btnGetStarted.setOnClickListener {
-            val intent = Intent(this@MainActivity, HomeActivity::class.java)
-            startActivity(intent)
+        // Initialize NavController
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
+        val getStartedButton = findViewById<Button>(R.id.get_started_button)
+        getStartedButton.setOnClickListener {
+            navController.navigate(R.id.action_main_to_home)
+            finish() // Optional: finish MainActivity
         }
     }
 
