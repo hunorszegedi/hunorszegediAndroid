@@ -2,10 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray">#808080</color>
-    <color name="cool_red">#D32F2F</color>
-    <color name="background_gray">#F5F5F5</color>
-    <color name="dark_red">#B71C1C</color>
-    <color name="button_text">#FFFFFF</color>
-    <color name="light_red">#FFCDD2</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#019267</color>
+    <color name="purple_700">#019267</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="background">#F5F5F5</color>
+    <color name="black_light">#1E000000</color>
+
 </resources>
