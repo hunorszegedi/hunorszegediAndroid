@@ -240,10 +240,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/popular_rv_item" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -252,12 +255,13 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="8dp"
-        app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/purple_500"
         app:itemTextColor="@color/purple_500"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
