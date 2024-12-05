@@ -143,7 +143,7 @@
                 android:layout_marginBottom="-23dp"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center"
-                android:text="Saláták"
+                android:text="Zsír"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -167,7 +167,7 @@
                 android:layout_marginBottom="-23dp"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center"
-                android:text="Main"
+                android:text="Levi"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -191,7 +191,7 @@
                 android:layout_marginBottom="-23dp"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center"
-                android:text="Italok"
+                android:text="Itóka"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
