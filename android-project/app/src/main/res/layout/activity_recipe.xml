@@ -114,7 +114,7 @@
             android:fontFamily="@font/poppins"
             android:paddingLeft="20sp"
             android:paddingRight="20sp"
-            android:text="Ingredients" />
+            android:text="Összetevők" />
 
         <ScrollView
             android:id="@+id/ing_scroll"
@@ -148,7 +148,7 @@
             android:fontFamily="@font/poppins"
             android:paddingLeft="20sp"
             android:paddingRight="20sp"
-            android:text="Steps" />
+            android:text="Lépések" />
 
         <ScrollView
             android:id="@+id/step_scroll"
