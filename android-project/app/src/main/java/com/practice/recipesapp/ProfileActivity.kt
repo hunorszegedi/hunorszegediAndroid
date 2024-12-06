@@ -14,7 +14,6 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // BottomNavigationView beállítása
         binding.bottomNavigation.selectedItemId = R.id.navigation_profile
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -29,11 +28,20 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_profile -> {
-                    // Már ezen az oldalon vagyunk
                     true
                 }
                 else -> false
             }
+        }
+
+        binding.addRecipeButton.setOnClickListener {
+            val intent = Intent(this, AddRecipeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.myRecipesButton.setOnClickListener {
+            val intent = Intent(this, MyRecipesActivity::class.java)
+            startActivity(intent)
         }
     }
 }

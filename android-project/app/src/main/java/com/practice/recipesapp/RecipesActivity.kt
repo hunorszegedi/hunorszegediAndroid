@@ -14,7 +14,6 @@ class RecipesActivity : AppCompatActivity() {
         binding = ActivityRecipesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // BottomNavigationView beállítása
         binding.bottomNavigation.selectedItemId = R.id.navigation_recipes
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -24,7 +23,6 @@ class RecipesActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_recipes -> {
-                    // Már ezen az oldalon vagyunk
                     true
                 }
                 R.id.navigation_profile -> {

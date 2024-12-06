@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_recipe.xml">
+        <config>
+          <theme>@style/Theme.RecipesApp</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
         <config>
           <theme>@style/Theme.RecipesApp</theme>
@@ -16,6 +21,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.RecipesApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_my_recipes.xml">
         <config>
           <theme>@style/Theme.RecipesApp</theme>
         </config>
@@ -41,6 +51,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/category_rv.xml">
+        <config>
+          <theme>@style/Theme.RecipesApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_new_recipe.xml">
         <config>
           <theme>@style/Theme.RecipesApp</theme>
         </config>
@@ -108,6 +123,9 @@
     &quot;accountId&quot;: &quot;0ecfc77f-c8af-4439-afae-602b441c71e1&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
