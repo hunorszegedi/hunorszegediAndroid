@@ -59,4 +59,6 @@
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+<!--  FEJLESZTENI AKAROM MEG!  -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
