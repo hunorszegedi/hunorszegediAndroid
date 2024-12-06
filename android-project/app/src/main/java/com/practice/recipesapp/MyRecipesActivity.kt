@@ -28,10 +28,3 @@ class MyRecipesActivity : AppCompatActivity() {
 //        binding.rvMyRecipes.adapter = myRecipesAdapter
 //    }
 }
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//
-//befejezni: videUrl es megjelenites
-//        recept hozzaadas es megjelenites, alapbol popular legyen
-//        jelenjen meg az osszesnel es a sajat profil oldalon
-//        toroljunk is!
