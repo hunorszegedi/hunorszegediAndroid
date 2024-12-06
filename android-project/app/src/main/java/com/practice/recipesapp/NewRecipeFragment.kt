@@ -38,7 +38,6 @@ class NewRecipeFragment : Fragment() {
     }
 
     private fun saveRecipeToDatabase(title: String, description: String, ingredients: String, imageUrl: String) {
-        // Adatbázis inicializálása
         val db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
@@ -61,6 +60,6 @@ class NewRecipeFragment : Fragment() {
 
 
         Toast.makeText(requireContext(), "Recept hozzáadva!", Toast.LENGTH_SHORT).show()
-        requireActivity().supportFragmentManager.popBackStack() // Vissza az előző nézetre
+        requireActivity().supportFragmentManager.popBackStack()
     }
 }
