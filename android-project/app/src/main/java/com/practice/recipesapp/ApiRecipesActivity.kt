@@ -1,6 +1,6 @@
 package com.practice.recipesapp
 
-import ApiRecipesAdapter
+import ApiRecipe
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -15,7 +15,6 @@ class ApiRecipesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityApiRecipesBinding
     private lateinit var apiRecipesAdapter: ApiRecipesAdapter
-    private val recipesList = ArrayList<ApiRecipe>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class ApiRecipesActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         binding.rvApiRecipes.layoutManager = LinearLayoutManager(this)
-        apiRecipesAdapter = ApiRecipesAdapter(recipesList, this)
+        apiRecipesAdapter = ApiRecipesAdapter(arrayListOf())
         binding.rvApiRecipes.adapter = apiRecipesAdapter
     }
 
@@ -37,16 +36,14 @@ class ApiRecipesActivity : AppCompatActivity() {
         apiService.getRecipes().enqueue(object : Callback<List<ApiRecipe>> {
             override fun onResponse(call: Call<List<ApiRecipe>>, response: Response<List<ApiRecipe>>) {
                 if (response.isSuccessful && response.body() != null) {
-                    recipesList.clear()
-                    recipesList.addAll(response.body()!!)
-                    apiRecipesAdapter.notifyDataSetChanged()
+                    apiRecipesAdapter.updateRecipes(response.body()!!)
                 } else {
-                    Toast.makeText(this@ApiRecipesActivity, "Nem sikerült lekérni a recepteket.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ApiRecipesActivity, "Hiba történt az adatok betöltésekor.", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<List<ApiRecipe>>, t: Throwable) {
-                Log.e("ApiError", "Hiba: ${t.message}")
+                Log.e("ApiError", t.message.toString())
                 Toast.makeText(this@ApiRecipesActivity, "Hálózati hiba történt.", Toast.LENGTH_SHORT).show()
             }
         })

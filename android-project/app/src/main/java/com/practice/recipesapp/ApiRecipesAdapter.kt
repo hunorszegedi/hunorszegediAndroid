@@ -1,31 +1,43 @@
-import android.content.Context
+package com.practice.recipesapp
+
+import ApiRecipe
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.practice.recipesapp.ApiRecipe
 import com.practice.recipesapp.databinding.ItemApiRecipeBinding
 
-class ApiRecipesAdapter(
-    private val recipes: List<ApiRecipe>,
-    private val context: Context
-) : RecyclerView.Adapter<ApiRecipesAdapter.ApiRecipesViewHolder>() {
+class ApiRecipesAdapter(private var recipes: ArrayList<ApiRecipe>) :
+    RecyclerView.Adapter<ApiRecipesAdapter.ApiRecipeViewHolder>() {
 
-    inner class ApiRecipesViewHolder(val binding: ItemApiRecipeBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ApiRecipeViewHolder(val binding: ItemApiRecipeBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiRecipesViewHolder {
-        val binding = ItemApiRecipeBinding.inflate(LayoutInflater.from(context), parent, false)
-        return ApiRecipesViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiRecipeViewHolder {
+        val binding = ItemApiRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ApiRecipeViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ApiRecipesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ApiRecipeViewHolder, position: Int) {
         val recipe = recipes[position]
-        holder.binding.recipeTitle.text = recipe.title
+
+        holder.binding.recipeTitle.text = recipe.name
         holder.binding.recipeDescription.text = recipe.description
-        Glide.with(context).load(recipe.imageUrl).into(holder.binding.recipeImage)
+
+        Glide.with(holder.itemView.context)
+            .load(recipe.thumbnailUrl)
+            .into(holder.binding.recipeImage)
+
+        holder.itemView.setOnClickListener {
+            // Itt kezelheted, ha például egy recept részleteire akarsz navigálni
+        }
     }
 
-    override fun getItemCount(): Int {
-        return recipes.size
+    override fun getItemCount(): Int = recipes.size
+
+    fun updateRecipes(newRecipes: List<ApiRecipe>) {
+        recipes.clear()
+        recipes.addAll(newRecipes)
+        notifyDataSetChanged()
     }
 }
