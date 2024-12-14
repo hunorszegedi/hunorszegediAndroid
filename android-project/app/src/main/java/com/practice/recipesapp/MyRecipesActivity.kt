@@ -2,6 +2,7 @@ package com.practice.recipesapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.practice.recipesapp.databinding.ActivityMyRecipesBinding
@@ -39,8 +40,9 @@ class MyRecipesActivity : AppCompatActivity() {
             }
 
             override fun onEditClicked(recipe: Recipe) {
+                Log.d("MyRecipesActivity", "Navigating to EditRecipeActivity with RECIPE_ID: ${recipe.uid}")
                 val intent = Intent(this@MyRecipesActivity, EditRecipeActivity::class.java)
-                intent.putExtra("RECIPE_ID", recipe.uid) // Recept azonosító átadása
+                intent.putExtra("RECIPE_ID", recipe.uid)
                 startActivity(intent)
             }
 

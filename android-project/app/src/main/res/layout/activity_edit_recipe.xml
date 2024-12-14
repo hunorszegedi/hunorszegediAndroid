@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/recipeTitleInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Recept címe"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/recipeDescriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Leírás"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/recipeIngredientsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hozzávalók"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/recipeImageUrlInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kép URL"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mentés"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>
