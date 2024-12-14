@@ -30,6 +30,10 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(this, RecipesActivity::class.java))
                     true
                 }
+                R.id.navigation_api_recipes -> {
+                    startActivity(Intent(this, ApiRecipesActivity::class.java))
+                    true
+                }
                 R.id.navigation_profile -> {
                     startActivity(Intent(this, ProfileActivity::class.java))
                     true
@@ -76,7 +80,6 @@ class HomeActivity : AppCompatActivity() {
 
         val db = Room.databaseBuilder(this@HomeActivity, AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
             .createFromAsset("recipe.db")
             .build()
 

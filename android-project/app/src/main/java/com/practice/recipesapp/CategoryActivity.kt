@@ -34,7 +34,6 @@ class CategoryActivity : AppCompatActivity() {
 
         var db = Room.databaseBuilder(this@CategoryActivity, AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
             .createFromAsset("recipe.db")
             .build()
 

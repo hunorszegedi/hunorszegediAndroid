@@ -27,6 +27,10 @@ class ProfileActivity : AppCompatActivity() {
                     overridePendingTransition(0, 0)
                     true
                 }
+                R.id.navigation_api_recipes -> {
+                    startActivity(Intent(this, ApiRecipesActivity::class.java))
+                    true
+                }
                 R.id.navigation_profile -> {
                     true
                 }
