@@ -14,4 +14,7 @@ interface Dao {
 
     @Query("SELECT * FROM recipe WHERE uid = :id")
     fun getRecipeById(id: Int): Recipe?
+
+    @Query("SELECT * FROM recipe WHERE category = :category")
+    fun getRecipesByCategory(category: String): List<Recipe?>?
 }

@@ -3,7 +3,6 @@ package com.practice.recipesapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.practice.recipesapp.databinding.ActivityMyRecipesBinding
 
 class MyRecipesActivity : AppCompatActivity() {
@@ -20,14 +19,15 @@ class MyRecipesActivity : AppCompatActivity() {
         setupRecyclerView()
     }
 
-    private fun setupRecyclerView() {
-        val db = Room.databaseBuilder(this, AppDatabase::class.java, "db_name")
-            .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
+    override fun onResume() {
+        super.onResume()
+        setupRecyclerView() // Frissíti az adatokat, amikor visszatérsz az Activity-hez
+    }
 
+    private fun setupRecyclerView() {
+        val db = DatabaseProvider.getDatabase(this)
         val dao = db.getDao()
-        val userAddedRecipes = dao.getAll()?.filter { it?.category == "User Added" } ?: emptyList()
+        val userAddedRecipes = dao.getRecipesByCategory("User Added") ?: emptyList()
 
         recipeList = ArrayList(userAddedRecipes.filterNotNull())
         binding.rvMyRecipes.layoutManager = LinearLayoutManager(this)
