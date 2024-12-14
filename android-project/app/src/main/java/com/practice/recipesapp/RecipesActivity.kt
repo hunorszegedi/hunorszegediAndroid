@@ -44,7 +44,6 @@ class RecipesActivity : AppCompatActivity() {
         // Initialize the database and fetch all recipes
         val db = Room.databaseBuilder(this@RecipesActivity, AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
             .createFromAsset("recipe.db")
             .build()
 

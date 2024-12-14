@@ -76,7 +76,6 @@ class HomeActivity : AppCompatActivity() {
 
         val db = Room.databaseBuilder(this@HomeActivity, AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
             .createFromAsset("recipe.db")
             .build()
 
