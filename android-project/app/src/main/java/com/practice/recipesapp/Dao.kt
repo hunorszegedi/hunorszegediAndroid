@@ -1,6 +1,7 @@
 package com.practice.recipesapp
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -17,4 +18,7 @@ interface Dao {
 
     @Query("SELECT * FROM recipe WHERE category = :category")
     fun getRecipesByCategory(category: String): List<Recipe?>?
+
+    @Delete
+    fun deleteRecipe(recipe: Recipe)
 }
