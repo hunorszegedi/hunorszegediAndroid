@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_api_recipe.xml">
+        <config>
+          <theme>@style/Theme.RecipesApp</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_recipe.xml">
         <config>
           <theme>@style/Theme.RecipesApp</theme>
@@ -126,6 +131,7 @@
       <list>
         <option value="Kotlin Interface" />
         <option value="resourceFile" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
       </list>
     </option>

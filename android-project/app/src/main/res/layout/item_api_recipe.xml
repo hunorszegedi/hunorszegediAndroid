@@ -26,7 +26,7 @@
             android:background="@drawable/image_background"
             android:clipToOutline="true" />
 
-        <!-- Recept adatai -->
+        <!-- Recept adatai és törlés gomb -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -56,5 +56,17 @@
                 android:ellipsize="end"
                 android:maxLines="2" />
         </LinearLayout>
+
+        <!-- Törlés gomb -->
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Törlés"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple_500"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
