@@ -10,6 +10,11 @@
           <theme>@style/Theme.RecipesApp</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_api_recipe_detail.xml">
+        <config>
+          <theme>@style/Theme.RecipesApp</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_api_recipes.xml">
         <config>
           <theme>@style/Theme.RecipesApp</theme>
@@ -120,8 +125,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="resourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -146,7 +151,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="_Designer_Tab" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -176,6 +181,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vivobook\Desktop\III_ev\android\android-project\app\src\main\res\layout" />
+    </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.practice.recipesapp" />
     </key>

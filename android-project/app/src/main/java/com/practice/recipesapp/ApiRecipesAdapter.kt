@@ -1,6 +1,7 @@
 package com.practice.recipesapp
 
 import ApiRecipe
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +30,12 @@ class ApiRecipesAdapter(private var recipes: ArrayList<ApiRecipe>) :
             .into(holder.binding.recipeImage)
 
         holder.itemView.setOnClickListener {
-            // Itt kezelheted, ha például egy recept részleteire akarsz navigálni
+            val intent = Intent(holder.itemView.context, ApiRecipeDetailActivity::class.java)
+            intent.putExtra("RECIPE_ID", recipe.recipeID)
+            holder.itemView.context.startActivity(intent)
         }
+
+
     }
 
     override fun getItemCount(): Int = recipes.size
